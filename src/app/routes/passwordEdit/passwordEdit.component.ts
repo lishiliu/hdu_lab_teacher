@@ -3,7 +3,7 @@ import {FormGroup, Validators, FormBuilder, FormControl} from '@angular/forms';
 import {PasswordEditService} from './passwordEdit.service';
 import {Router} from '@angular/router';
 import {NzMessageService} from 'ng-zorro-antd';
-import {SessionStorageService} from "@core/storage/storage.service";
+import {SessionStorageService} from '@core/storage/storage.service';
 
 @Component({
     selector: 'password-edit',
@@ -15,30 +15,30 @@ import {SessionStorageService} from "@core/storage/storage.service";
 export class passwordEditComponent implements OnInit {
   validateForm: FormGroup;
 
-  constructor(public _storage : SessionStorageService,private fb: FormBuilder, private passwordEditService: PasswordEditService, private router: Router, private _message: NzMessageService) {
+  constructor(public _storage: SessionStorageService, private fb: FormBuilder, private passwordEditService: PasswordEditService, private router: Router, private _message: NzMessageService) {
   }
     _submitForm() {
         for (const i in this.validateForm.controls) {
             this.validateForm.controls[ i ].markAsDirty();
         }
         for (const i in this.validateForm.controls) {
-            if(!this.validateForm.controls[ i ].valid){
+            if (!this.validateForm.controls[ i ].valid){
               return;
             }
         }
-        if(this.validateForm.value.checkPassword==this.validateForm.value.password)
-          this.passwordEditService.executeHttp("/user/updatePassword",{userName: this._storage.get('username'),"oldPassword": this.validateForm.value.oldPassword, "newPassword": this.validateForm.value.password}).then((result: any) => {
-              let res = JSON.parse(result['_body']).result;
-              if(res=="success"){
+        if (this.validateForm.value.checkPassword == this.validateForm.value.password)
+          this.passwordEditService.executeHttp('/user/updatePassword', {userName: this._storage.get('username'), 'oldPassword': this.validateForm.value.oldPassword, 'newPassword': this.validateForm.value.password}).then((result: any) => {
+              const res = JSON.parse(result['_body']).result;
+              if (res == 'success'){
                   this._message.success('修改成功！');
                   this._storage.clear();
                   setTimeout(function () {
                       window.location.assign('/');
-                  },2000)
+                  }, 2000);
               }else{
-                  this._message.error("旧密码错误！");
+                  this._message.error('旧密码错误！');
               }
-          })
+          });
     }
     updateConfirmValidator() {
         /** wait for refresh value */
@@ -55,7 +55,7 @@ export class passwordEditComponent implements OnInit {
         } else if (control.value !== this.validateForm.controls[ 'password' ].value) {
             return { confirm: true, error: true };
         }
-    };
+    }
 
   ngOnInit() {
     this.validateForm = this.fb.group({

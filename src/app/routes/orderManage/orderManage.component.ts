@@ -29,16 +29,16 @@ export class OrderManageComponent implements OnInit {
     user;
     /*接口地址*/
     apiUrl = [
-        'http://aliyun.charlesxu.cn:8080/LabManager/order/getSimpleOrderByUsername', /*0获取预约*/
-        'http://aliyun.charlesxu.cn:8080/LabManager/order/getOrderByUsername', /*1获取预约*/
-        'http://aliyun.charlesxu.cn:8080/LabManager/order/getFinishedSimpleOrderListByUsername', /*2获取通过预约*/
-        'http://aliyun.charlesxu.cn:8080/LabManager/order/getUnfinishedSimpleOrderListByUsername', /*3获取未通过预约*/
-        'http://aliyun.charlesxu.cn:8080/LabManager/lab/getLabById', // 4
-        'http://aliyun.charlesxu.cn:8080/LabManager/order/deleteOrder', // 5
-        'http://aliyun.charlesxu.cn:8080/LabManager/user/getUserByUserName', // 6
-        'http://aliyun.charlesxu.cn:8080/LabManager/order/semester/getOrderByUsername', // 7
-        'http://aliyun.charlesxu.cn:8080/LabManager/order/semester/getSimpleOrderByUserName', // 8
-        'http://aliyun.charlesxu.cn:8080/LabManager/semester/getNowSemester', // 9
+        'http://localhost:8080/LabManager/order/getSimpleOrderByUsername', /*0获取预约*/
+        'http://localhost:8080/LabManager/order/getOrderByUsername', /*1获取预约*/
+        'http://localhost:8080/LabManager/order/getFinishedSimpleOrderListByUsername', /*2获取通过预约*/
+        'http://localhost:8080/LabManager/order/getUnfinishedSimpleOrderListByUsername', /*3获取未通过预约*/
+        'http://localhost:8080/LabManager/lab/getLabById', // 4
+        'http://localhost:8080/LabManager/order/deleteOrder', // 5
+        'http://localhost:8080/LabManager/user/getUserByUserName', // 6
+        'http://localhost:8080/LabManager/order/semester/getOrderByUsername', // 7
+        'http://localhost:8080/LabManager/order/semester/getSimpleOrderByUserName', // 8
+        'http://localhost:8080/LabManager/semester/getNowSemester', // 9
     ];
     options = [
         { value: '2016', label: '2016' },
