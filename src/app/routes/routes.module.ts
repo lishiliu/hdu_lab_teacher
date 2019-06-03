@@ -12,6 +12,7 @@ import {ProfileModule} from './profile/profile.module';
 import {RegisterModule} from './register/register.module';
 import {passwordEditModule} from './passwordEdit/passwordEdit.module';
 import {ExperimentsModule} from './experiments/experiments.module';
+import {StudentSignInModule} from './studentSignIn/studentSignIn.module';
 
 @NgModule({
     imports: [
@@ -29,6 +30,7 @@ import {ExperimentsModule} from './experiments/experiments.module';
         ProfileModule,
         RegisterModule,
         passwordEditModule,
+        StudentSignInModule,
     ]
 })
 

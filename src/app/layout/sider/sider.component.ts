@@ -41,6 +41,11 @@ export class SiderComponent {
       'route': '/courses',
     },
     {
+      'icon': 'database',
+      'name': '学生签到管理',
+      'route': '/studentSignIn',
+    },
+    {
       'icon': 'bulb',
       'name': '实验管理',
       'route': '/experiments',
