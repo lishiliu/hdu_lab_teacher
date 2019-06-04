@@ -18,7 +18,7 @@ export class AddStudentComponent implements OnInit {
     loadStatus: boolean;
     submitBtn = '提交';
     curl = [
-        'studentSign/addStudent', // 0 添加课程
+        'studentSignIn/addStudent', // 0 添加课程
         'semester/getNowSemester' // 1获取当前学期
     ];
     constructor(private _storage: SessionStorageService, private fb: FormBuilder, private router: Router,
@@ -64,7 +64,7 @@ export class AddStudentComponent implements OnInit {
         this.addStudentService.executeHttp(this.curl[0], data)
             .then((result: any) => {
                 const res = JSON.parse(result['_body']);
-                if (res['result'] === 1) {
+                if (res['result'] === 'success') {
                     this.success();
                 } else {
                     this.info('警告', '添加失败,请检查后重试！');
@@ -73,7 +73,6 @@ export class AddStudentComponent implements OnInit {
             });
     }
     private getData() {
-        this.setInitWeek();
         // 获取学期
         this.addStudentService.executeGET(this.curl[1])
             .then((result: any) => {
@@ -85,10 +84,11 @@ export class AddStudentComponent implements OnInit {
     }
     private _getData = () => {
         // 获取课程c
-        this.addStudentCourse = JSON.parse(this._storage.get('addStuCourse'));
+        this.addStudentCourse = JSON.parse(this._storage.get('addStudentClass'));
     }
     ngOnInit() {
         this.getData();
+        this._getData();
         this.validateForm = this.fb.group({
             addClassId: [null, [Validators.required]],
             addClassName: [null, [Validators.required]],

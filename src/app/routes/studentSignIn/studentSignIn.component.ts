@@ -81,7 +81,8 @@ export class StudentSignInComponent implements OnInit {
     }
     // 添加学生
     addStudent(data: any) {
-        this._storage.set('addStudentClass', data);
+        const str = JSON.stringify(data);
+        this._storage.set('addStudentClass', str);
         this.router.navigate(['/studentSignIn/add']);
     }
     // 开始签到
