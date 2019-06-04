@@ -127,7 +127,7 @@
             <span>
               <a (click)="showRecords(data)">查看签到记录</a>
               <span nz-table-divider></span>
-              <nz-popconfirm [nzTitle]="'确定发布签到？'" (nzOnConfirm)="startSign(data)" (nzOnCancel)="null">
+              <nz-popconfirm [nzTitle]="'确定发布签到？（PS:请提醒学生在规定时间内完成，一小时后自动结束签到！）'" (nzOnConfirm)="startSign(data)" (nzOnCancel)="null">
                 <a nz-popconfirm>开始签到</a>
                  <span nz-table-divider></span>
                  <a (click)="addStudent(data)">添加学生</a>

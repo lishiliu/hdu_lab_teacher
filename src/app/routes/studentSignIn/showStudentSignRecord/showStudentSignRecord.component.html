@@ -15,21 +15,21 @@
 <div nz-row class="mycard" [nzType]="'flex'" [nzJustify]="'center'" [nzAlign]="'middle'">
     <div nz-col [nzSpan]="8">
         <p>总人数</p>
-        <p>{{courses.length}}人</p>
+        <p>{{signRecords.length}}人</p>
     </div>
     <div nz-col [nzSpan]="8" class="se">
         <p>已签到</p>
-        <p>{{this.getAllHours(courses)}}人</p>
+        <p>{{doCount}}人</p>
     </div>
     <div nz-col [nzSpan]="8">
         <p>未签到</p>
-        <p>{{this.getWeekHours(courses)}}人</p>
+        <p>{{undoCount}}人</p>
     </div>
 </div>
 <br>
 <div nz-row [nzType]="'flex'" [nzJustify]="'start'">
     <div nz-col [nzSpan]="24">
-        <nz-table #nzTable [nzDataSource]="courses" [nzPageSize]="5" [nzShowSizeChanger]="true" [nzShowTotal]="true" [nzTotal]="courses.length">
+        <nz-table #nzTable [nzDataSource]="signRecords" [nzPageSize]="5" [nzShowSizeChanger]="true" [nzShowTotal]="true" [nzTotal]="signRecords.length">
             <thead nz-thead>
             <tr>
                 <th nz-th><span>学号</span></th>
@@ -51,10 +51,11 @@
                 <td nz-td>{{data.majorIn}}</td>
                 <td nz-td>{{data.college}}</td>
                 <td nz-td>{{data.gradeNo}}</td>
-                <td nz-td>{{data.status}}</td>
+                <td nz-td>{{data.statusString}}</td>
                 <td nz-td>{{data.computerNo}}</td>
                 <td nz-td>{{data.labName}}</td>
             </tr>
             </tbody>
         </nz-table>
     </div>
+</div>

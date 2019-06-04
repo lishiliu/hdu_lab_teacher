@@ -59,6 +59,12 @@ export class HistoricalRecordsComponent implements OnInit {
     private getHours(course: any) {
         return course.classNum.length * course.classWeek.length;
     }
+    // 查看学生记录
+    showHistoryRecords(data: any) {
+        const str = JSON.stringify(data);
+        this._storage.set('signInCourse', str);
+        this.router.navigate(['/studentSignIn/show']);
+    }
     private _getData = () => {
         // 获取当前学期信息
         this.getSemester();

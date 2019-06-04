@@ -81,7 +81,7 @@ export class StudentSignInComponent implements OnInit {
     }
     // 添加学生
     addStudent(data: any) {
-        this._storage.set('addStudentClassId', data.classId);
+        this._storage.set('addStudentClass', data);
         this.router.navigate(['/studentSignIn/add']);
     }
     // 开始签到
@@ -119,7 +119,7 @@ export class StudentSignInComponent implements OnInit {
                 const str = form.controls['fy'].value.value + '-' +
                     form.controls['sy'].value.value + '-' + form.controls['type'].value;
                 _storage.set('historyCourses', str);
-                Route.navigate(['/courses/history']);
+                Route.navigate(['/studentSignIn/history']);
             },
             onCancel() {
             },
