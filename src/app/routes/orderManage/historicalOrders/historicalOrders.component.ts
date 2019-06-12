@@ -27,12 +27,12 @@ export class HistoricalOrdersComponent implements OnInit {
     user;
     /*接口地址*/
     apiUrl = [
-        'http://localhost:8080/LabManager/semester/getNowSemester', /*0*/
-        'http://localhost:8080/LabManager/order/semester/getOrderByUsername', /*1获取预约*/
-        'http://localhost:8080/LabManager/order/semester/getFinishedSimpleOrderListByUsername', /*2获取通过预约*/
-        'http://localhost:8080/LabManager/order/semester/getUnfinishedSimpleOrderListByUsername', /*3获取未通过预约*/
-        'http://localhost:8080/LabManager/lab/getLabById', // 4
-        'http://localhost:8080/LabManager/user/getUserByUserName', // 5
+        'http://www.mrzhao14.cn/LabManager/semester/getNowSemester', /*0*/
+        'http://www.mrzhao14.cn/LabManager/order/semester/getOrderByUsername', /*1获取预约*/
+        'http://www.mrzhao14.cn/LabManager/order/semester/getFinishedSimpleOrderListByUsername', /*2获取通过预约*/
+        'http://www.mrzhao14.cn/LabManager/order/semester/getUnfinishedSimpleOrderListByUsername', /*3获取未通过预约*/
+        'http://www.mrzhao14.cn/LabManager/lab/getLabById', // 4
+        'http://www.mrzhao14.cn/LabManager/user/getUserByUserName', // 5
     ];
     // 获取学期
   searchSemester = this._storage.get('history');

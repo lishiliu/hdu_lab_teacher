@@ -29,16 +29,16 @@ export class OrderManageComponent implements OnInit {
     user;
     /*接口地址*/
     apiUrl = [
-        'http://localhost:8080/LabManager/order/getSimpleOrderByUsername', /*0获取预约*/
-        'http://localhost:8080/LabManager/order/getOrderByUsername', /*1获取预约*/
-        'http://localhost:8080/LabManager/order/getFinishedSimpleOrderListByUsername', /*2获取通过预约*/
-        'http://localhost:8080/LabManager/order/getUnfinishedSimpleOrderListByUsername', /*3获取未通过预约*/
-        'http://localhost:8080/LabManager/lab/getLabById', // 4
-        'http://localhost:8080/LabManager/order/deleteOrder', // 5
-        'http://localhost:8080/LabManager/user/getUserByUserName', // 6
-        'http://localhost:8080/LabManager/order/semester/getOrderByUsername', // 7
-        'http://localhost:8080/LabManager/order/semester/getSimpleOrderByUserName', // 8
-        'http://localhost:8080/LabManager/semester/getNowSemester', // 9
+        'http://www.mrzhao14.cn/LabManager/order/getSimpleOrderByUsername', /*0获取预约*/
+        'http://www.mrzhao14.cn/LabManager/order/getOrderByUsername', /*1获取预约*/
+        'http://www.mrzhao14.cn/LabManager/order/getFinishedSimpleOrderListByUsername', /*2获取通过预约*/
+        'http://www.mrzhao14.cn/LabManager/order/getUnfinishedSimpleOrderListByUsername', /*3获取未通过预约*/
+        'http://www.mrzhao14.cn/LabManager/lab/getLabById', // 4
+        'http://www.mrzhao14.cn/LabManager/order/deleteOrder', // 5
+        'http://www.mrzhao14.cn/LabManager/user/getUserByUserName', // 6
+        'http://www.mrzhao14.cn/LabManager/order/semester/getOrderByUsername', // 7
+        'http://www.mrzhao14.cn/LabManager/order/semester/getSimpleOrderByUserName', // 8
+        'http://www.mrzhao14.cn/LabManager/semester/getNowSemester', // 9
     ];
     options = [
         { value: '2016', label: '2016' },

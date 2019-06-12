@@ -18,8 +18,8 @@ export class HistoricalCoursesComponent implements OnInit {
     }
     validateForm: FormGroup;
     apiUrl = [
-        'http://localhost:8080/LabManager/class/semester/getclassbyusername', /*0获取课程*/
-        'http://localhost:8080/LabManager/semester/getNowSemester', // 1
+        'http://www.mrzhao14.cn/LabManager/class/semester/getclassbyusername', /*0获取课程*/
+        'http://www.mrzhao14.cn/LabManager/semester/getNowSemester', // 1
     ];
 
     WEEK = ['日', '一', '二', '三', '四', '五', '六', '日'];

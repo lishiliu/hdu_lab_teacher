@@ -34,17 +34,14 @@ export class StudentSignInComponent implements OnInit {
     courses = [];
     data = [];
     // 获取学期
-    nowSemester = {
-        nowSemester: '',
-        maxWeek: 17
-    };
+    nowSemester;
+    thisWeek;
     private getSemester() {
         this.studentSignInService.executeGET(this.apiUrl[2])
             .then((result: any) => {
-                const res = JSON.parse(result['_body']);
-                if (res['result'] === 'success') {
-                    this.nowSemester = res['NowSemester'];
-                }
+                let res = JSON.parse(result['_body'])['NowSemester'];
+                this.nowSemester = res['nowSemester'];
+                this.thisWeek = res['thisWeek'];
             });
     }
     private getAllHours(courses: any) {
@@ -77,6 +74,8 @@ export class StudentSignInComponent implements OnInit {
     showRecords(data: any) {
         const str = JSON.stringify(data);
         this._storage.set('signInCourse', str);
+        this._storage.set('historyOrThisWeek', '0');
+        this._storage.set('thisWeek', this.thisWeek);
         this.router.navigate(['/studentSignIn/show']);
     }
     // 添加学生
@@ -120,6 +119,7 @@ export class StudentSignInComponent implements OnInit {
                 const str = form.controls['fy'].value.value + '-' +
                     form.controls['sy'].value.value + '-' + form.controls['type'].value;
                 _storage.set('historyCourses', str);
+                _storage.set('selectWeek', form.controls['weekNo'].value);
                 Route.navigate(['/studentSignIn/history']);
             },
             onCancel() {
@@ -146,7 +146,8 @@ export class StudentSignInComponent implements OnInit {
         this.validateForm = this.fb.group({
             fy: [null, this.validateForm],
             sy: [null, this.validateForm],
-            type: [null, this.validateForm]
+            type: [null, this.validateForm],
+            weekNo: [null, this.validateForm]
         });
         this._getData();
     }
