@@ -18,25 +18,4 @@ export class LoginService {
                 })
       });
   }
-  login(username: string, password: string) {
-    return new Promise((resolve, reject) => {
-      setTimeout(() => {
-        this.executeHttp("/user/login",{"userName":username,"password":password}).then((result: any) => {
-            let res = JSON.parse(result['_body']).result;
-            if(res==1){
-                this._storage.set('username', username);
-                resolve(true);
-            }else{
-                reject(false);
-            }
-        })
-        // if ((username === 'admin' && password === 'admin') || (username === 'guest' && password === 'guest') || (username === '40392' && password === '123456')) {
-        //   this._storage.set('username', username);
-        //   resolve(true);
-        // } else {
-        //   reject(false);
-        // }
-      }, 1000);
-    });
-  }
 }
